@@ -6,7 +6,7 @@
 /*   By: sechang <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/17 13:30:56 by sechang           #+#    #+#             */
-/*   Updated: 2019/03/03 21:57:44 by sechang          ###   ########.fr       */
+/*   Updated: 2019/03/03 23:20:41 by sechang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,7 @@ void	separate_dir_n_files(int i, t_usage *usage, int argc, char **argv)
 	print_dir_n_files(filetop, dirtop, usage);
 }
 
-int	main(int argc, char **argv)
+int		main(int argc, char **argv)
 {
 	int			i;
 	t_usage		*usage;
@@ -123,6 +123,7 @@ int	main(int argc, char **argv)
 	}
 	else
 	{
+		usage->args = argc - i;
 		separate_dir_n_files(i, usage, argc, argv);
 	}
 	return (0);

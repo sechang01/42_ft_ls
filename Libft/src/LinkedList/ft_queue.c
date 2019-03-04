@@ -6,14 +6,11 @@
 /*   By: sechang <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/24 22:28:32 by sechang           #+#    #+#             */
-/*   Updated: 2019/03/03 19:36:10 by sechang          ###   ########.fr       */
+/*   Updated: 2019/03/03 23:28:36 by sechang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// #include "../../inc/libft.h"
 #include "ft_linkedlist.h"
-
-// FIFO
 
 t_queue		*queue_init_lst(void)
 {
@@ -76,24 +73,18 @@ void		*queue_out_rear(t_queue *lst)
 	void		*tmp3;
 	int			i;
 
-	i = 1;
-	if (!lst || !lst->front)
+	if ((i = 1) && (!lst || !lst->front))
 		return (0);
-	tmp = lst->front;
-	if (lst->size == 1)
+	if ((tmp = lst->front) && lst->size == 1)
 	{
-//		printf("List size is one.\n");
 		tmp3 = lst->front->data;
 		lst->front = lst->front->next;
 		free(tmp);
 	}
 	else
 	{
-		while (i < lst->size - 1)
-		{
+		while (i++ < lst->size - 1)
 			tmp = tmp->next;
-			i++;
-		}
 		lst->rear = tmp;
 		tmp3 = tmp->next->data;
 		tmp = tmp->next;
@@ -103,7 +94,6 @@ void		*queue_out_rear(t_queue *lst)
 	lst->size--;
 	return (tmp3);
 }
-
 
 void		queue_print(t_queue *lst)
 {
@@ -120,31 +110,5 @@ void		queue_print(t_queue *lst)
 		printf("Print Out: %s\n", (char *)tmp->data);
 		tmp = tmp->next;
 	}
-	printf(" ----- \n");	
+	printf(" ----- \n");
 }
-
-/*
-   int		main()
-   {
-   t_queue	*test;
-
-   test = queue_init_lst();
-   printf("Success: %d \n", queue_in(test, "123"));
-   printf("Success: %d \n", queue_in(test, "456"));
-   printf("Success: %d \n", queue_in(test, "789"));
-   printf("Success: %d \n", queue_in(test, "000"));
-   printf("Success: %d \n", queue_in(test, "ABX"));
-
-   printf("Success: %s \n", (char *)queue_out(test));
-   printf("Success: %s \n", (char *)queue_out(test));
-   printf("Success: %s \n", (char *)queue_out(test));
-   printf("Success: %s \n", (char *)queue_out(test));
-//	printf("Success: %s \n", (char *)queue_out(test));
-
-queue_print(test);
-printf("Success: %s \n", (char *)queue_out(test));
-
-queue_print(test);
-return(0);
-}
-*/

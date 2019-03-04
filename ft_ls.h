@@ -6,7 +6,7 @@
 /*   By: sechang <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/16 15:40:29 by sechang           #+#    #+#             */
-/*   Updated: 2019/03/03 22:05:42 by sechang          ###   ########.fr       */
+/*   Updated: 2019/03/03 23:13:32 by sechang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ typedef struct		s_usage
 	int				a;
 	int				r;
 	int				t;
+	int				args;
 	int				total_blocks;
 	t_queue			*dir;
 	struct stat		statbuf;

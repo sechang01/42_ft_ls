@@ -6,7 +6,7 @@
 /*   By: sechang <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/17 13:32:39 by sechang           #+#    #+#             */
-/*   Updated: 2019/03/03 22:00:55 by sechang          ###   ########.fr       */
+/*   Updated: 2019/03/03 23:39:45 by sechang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void			sort_and_print(t_node *node, t_usage *usage)
 	node = sort_list(node, usage);
 	if (usage->t)
 		node = sort_list_time(node, usage, 0, 0);
-	if (usage->l)
+	if (usage->l && !usage->args)
 		ft_printf("total %d\n", usage->total_blocks);
 	print_out(node, usage, NULL, NULL);
 }
@@ -87,6 +87,7 @@ void			print_out2(t_node *front, t_usage *usage)
 {
 	t_node		*tmp;
 	char		*fullpath;
+	char		*fullname;
 
 	if (!usage->dir)
 		usage->dir = queue_init_lst();
@@ -94,7 +95,14 @@ void			print_out2(t_node *front, t_usage *usage)
 	{
 		queue_in(usage->dir, (void *)front->name);
 		fullpath = full_path(usage->dir);
-		ft_printf("\n./%s:\n", fullpath);
+		fullname = ft_strdup(fullpath);
+		if (usage->args != 1 || usage->bigr)
+			ft_printf("\n");
+		if (!(*ft_strrchr(fullname, '/') = '\0') && usage->bigr)
+			ft_printf("./");
+		if (usage->args != 1 || usage->bigr)
+			ft_printf("%s:\n", fullname);
+		free(fullname);
 		open_dir_files(front, usage, fullpath, NULL);
 		free(fullpath);
 		queue_out_rear(usage->dir);
