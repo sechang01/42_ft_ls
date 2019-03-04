@@ -1,0 +1,79 @@
+Mandatory Part
+
+-l
+
+(The lowercase letter ``ell''.)  List in long format.  (See below.)  If the output is to a terminal, a total sum for all the file sizes is output on a line before the long listing.
+
+-R *
+
+Recursively list subdirectories encountered.
+
+-a
+
+Include directory entries whose names begin with a dot (.).
+
+-r
+
+Reverse the order of the sort to get reverse lexicographical order or the oldest entries first (or largest files last, if combined with sort by size
+
+-t
+
+Sort by time modified (most recently modified first) before sorting the operands by lexicographical order.
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+- You do not have to deal with the multiple column format for the exit when
+the option -l isn’t in the arguments
+
+- You are not required to deal with ACL and extended attributes.
+
+
+Allowed Functions:
+
+write
+opendir (const char *filename);
+	opens dir named by filename + returns pointer to dir, error = NULL, no access = errno
+readdir (DIR *dirp);
+	returns pointer to next dir entry. end of dir / error = NULL.
+closedir (DIR *dirp);
+	closes named dir + frees structure assoc w dirp pointer, return 0 on success, -1 on failure, errno = ERROR.
+stat (const char *restrict path, struct stat *restrict buf);
+	obtains info about file 
+lstat (const char *restrict path, struct stat *restrict buf);
+	like stat for symbolic links
+getpwuid (uid_t uid);
+	return a valid pointer to a passwd structure on sucess or NULL if entry not found/error.
+
+getgrgrid
+	
+listxattr (const char *path, char *namebuf, size_t size, int options);
+	retrieves a list of names of extended attributes associated with a given path
+time (time_t *tloc);
+	returns value of time in seconds since 0/0/0/0, Jan 1, 1970. also stored in tloc.	
+ctime (const time_t *clock);
+	adjusts the time value for the current time zone. returns ptr to fmt:
+	Thu Nov 24 18:22:48 1986\n\0
+readlink (const char *restrict path, char *restrict buf, size_t bufsize);
+	returns count of characters placed in buffer if it succeeds, -1 if error.
+malloc
+free
+perror
+sterror
+exit
+
+     The status information word st_mode has the following bits:
+
+     #define S_IFMT 0170000           /* type of file */
+     #define        S_IFIFO  0010000  /* named pipe (fifo) */
+     #define        S_IFCHR  0020000  /* character special */
+     #define        S_IFDIR  0040000  /* directory */
+     #define        S_IFBLK  0060000  /* block special */
+     #define        S_IFREG  0100000  /* regular */
+     #define        S_IFLNK  0120000  /* symbolic link */
+     #define        S_IFSOCK 0140000  /* socket */
+     #define        S_IFWHT  0160000  /* whiteout */
+     #define S_ISUID 0004000  /* set user id on execution */
+     #define S_ISGID 0002000  /* set group id on execution */
+     #define S_ISVTX 0001000  /* save swapped text even after use */
+     #define S_IRUSR 0000400  /* read permission, owner */
+     #define S_IWUSR 0000200  /* write permission, owner */
+     #define S_IXUSR 0000100  /* execute/search permission, owner */
