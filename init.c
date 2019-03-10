@@ -6,7 +6,7 @@
 /*   By: sechang <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/17 13:31:16 by sechang           #+#    #+#             */
-/*   Updated: 2019/03/03 21:58:02 by sechang          ###   ########.fr       */
+/*   Updated: 2019/03/09 15:40:28 by sechang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,10 @@ void		permissions(t_node *new, struct stat statbuf)
 	new->permission[7] = (statbuf.st_mode & S_IROTH) ? 'r' : '-';
 	new->permission[8] = (statbuf.st_mode & S_IWOTH) ? 'w' : '-';
 	new->permission[9] = (statbuf.st_mode & S_IXOTH) ? 'x' : '-';
+	if (statbuf.st_mode & S_ISVTX && new->permission[6] != '-')
+		new->permission[9] = 't';
+	else if (statbuf.st_mode & S_ISVTX)
+		new->permission[9] = 'T';
 	new->permission[10] = (new->extend[0]) ? '@' : ' ';
 	new->permission[11] = '\0';
 	new->size = statbuf.st_size;

@@ -6,7 +6,7 @@
 #    By: sechang <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/16 09:56:58 by sechang           #+#    #+#              #
-#    Updated: 2019/03/03 14:09:45 by sechang          ###   ########.fr        #
+#    Updated: 2019/03/04 14:52:00 by sechang          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,6 @@ SRC0 = ft_memset.c ft_bzero.c ft_memcpy.c ft_memccpy.c ft_memmove.c ft_memchr.c 
 	ft_lstnew.c ft_lstdelone.c ft_lstdel.c ft_lstadd.c ft_lstiter.c \
 	ft_lstmap.c \
 	ft_get_intlen.c ft_isupper.c ft_islower.c ft_iswhitespace.c ft_getwords.c\
-	ft_itoabase.c \
 	Get_next_line/get_next_line.c \
 	Printf/ft_printf.c \
 	Printf/ft_fprintf.c \

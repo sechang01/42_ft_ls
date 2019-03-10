@@ -6,7 +6,7 @@
 /*   By: sechang <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/17 13:30:56 by sechang           #+#    #+#             */
-/*   Updated: 2019/03/03 23:20:41 by sechang          ###   ########.fr       */
+/*   Updated: 2019/03/09 16:19:23 by sechang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ char	*full_path(t_queue *lst)
 	char		*tmppath;
 
 	tmppath = 0;
-	fullpath = (char *)malloc(sizeof(char) * 0);
+	fullpath = ft_strnew(1);
 	tmp = lst->front;
 	while (tmp)
 	{
@@ -64,9 +64,9 @@ void	print_dir_n_files(t_node *filetop, t_node *dirtop, t_usage *usage)
 		sort_and_print(filetop, usage);
 	if (dirtop)
 	{
-		sort_list(dirtop, usage);
+		dirtop = sort_list(dirtop, usage);
 		if (usage->t)
-			sort_list_time(dirtop, usage, 0, 0);
+			dirtop = sort_list_time(dirtop, usage, 0, 0);
 		print_out2(dirtop, usage);
 	}
 }
@@ -83,7 +83,7 @@ void	separate_dir_n_files(int i, t_usage *usage, int argc, char **argv)
 	{
 		node = node_init(argv[i++], usage->statbuf);
 		if (!node->int_last_mod)
-			ft_printf("ft_ls: %s: No such file or directory\n", argv[i++]);
+			ft_printf("ft_ls: %s: No such file or directory\n", node->name);
 		else if (node->isdir)
 		{
 			if (dirtop)

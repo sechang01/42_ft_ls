@@ -6,15 +6,14 @@
 /*   By: sechang <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/23 21:03:05 by sechang           #+#    #+#             */
-/*   Updated: 2019/02/27 15:28:27 by sechang          ###   ########.fr       */
+/*   Updated: 2019/03/04 14:37:43 by sechang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_LINKEDLIST_H
- #define FT_LINKEDLIST_H
-
-#include <stdio.h>
-#include <stdlib.h>
+# define FT_LINKEDLIST_H
+# include <stdio.h>
+# include <stdlib.h>
 
 typedef struct		s_sqnode
 {
@@ -35,15 +34,15 @@ typedef struct		s_stack
 	int				size;
 }					t_stack;
 
-t_stack			*stack_init_lst(void);
-int				stack_in(t_stack *lst, void *data);
-void			*stack_out(t_stack *lst);
-void			stack_print(t_stack *lst);
+t_stack				*stack_init_lst(void);
+int					stack_in(t_stack *lst, void *data);
+void				*stack_out(t_stack *lst);
+void				stack_print(t_stack *lst);
 
-t_queue			*queue_init_lst(void);
-int				queue_in(t_queue *lst, void *data);
-void			*queue_out(t_queue *lst);
-void			*queue_out_rear(t_queue *lst);
-void			queue_print(t_queue *lst);
+t_queue				*queue_init_lst(void);
+int					queue_in(t_queue *lst, void *data);
+void				*queue_out(t_queue *lst);
+void				*queue_out_rear(t_queue *lst);
+void				queue_print(t_queue *lst);
 
 #endif

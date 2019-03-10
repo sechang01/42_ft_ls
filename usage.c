@@ -6,7 +6,7 @@
 /*   By: sechang <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/16 15:52:45 by sechang           #+#    #+#             */
-/*   Updated: 2019/03/03 22:44:31 by sechang          ###   ########.fr       */
+/*   Updated: 2019/03/04 15:48:15 by sechang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,9 @@ void	is_usage(t_usage *usage, char c)
 		usage->t = 1;
 	else
 	{
-		ft_printf("ls: illegal option -- %c\n\
-				usage: ./ft_ls [-lRart] [file ...]\n", c);
+		ft_printf(
+		"ls: illegal option -- %c\nusage: ./ft_ls [-lRart] [file ...]\n"
+		, c);
 		exit(1);
 	}
 }

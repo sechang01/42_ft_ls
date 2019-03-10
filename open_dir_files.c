@@ -6,7 +6,7 @@
 /*   By: sechang <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/03 21:47:14 by sechang           #+#    #+#             */
-/*   Updated: 2019/03/03 22:47:14 by sechang          ###   ########.fr       */
+/*   Updated: 2019/03/09 16:51:10 by sechang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,18 @@ void		sum_blocks(t_node *node, t_usage *usage)
 			usage->total_blocks += usage->statbuf.st_blocks;
 }
 
-int			dir_file_util(t_node **node, char *path)
+int			dir_file_util(t_node **node, char *path, t_usage *usage)
 {
-	if ((*node)->permission[1] == '-')
+	if (path)
+	{
+		lstat(path, &usage->statbuf);
+		if (!(usage->statbuf.st_mode & S_IRUSR))
+		{
+			ft_printf("ft_ls: %s: Permission denied\n", (*node)->name);
+			return (1);
+		}
+	}
+	else if ((*node)->permission[1] == '-')
 	{
 		ft_printf("ft_ls: %s: Permission denied\n", (*node)->name);
 		return (1);
@@ -41,7 +50,7 @@ void		open_dir_files(t_node *node, t_usage *usage,
 	char			*tmp_path;
 
 	dir = (path) ? opendir(path) : opendir(node->name);
-	if (dir_file_util(&node, path))
+	if (dir_file_util(&node, path, usage))
 		return ;
 	while ((test = readdir(dir)))
 	{

@@ -6,12 +6,12 @@
 #    By: sechang <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/17 13:39:01 by sechang           #+#    #+#              #
-#    Updated: 2019/03/03 21:50:43 by sechang          ###   ########.fr        #
+#    Updated: 2019/03/09 15:56:57 by sechang          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = ft_ls
-SRCS = main.c init.c output.c usage.c ls_sorting.c open_dir_files.c
+SRCS = main.c init.c output.c usage.c ls_sorting.c open_dir_files.c merge_sort.c
 OBJ = ${SRCS:.c=.o}
 FLAGS = -Wall -Werror -Wextra
 LIB = Libft/libft.a

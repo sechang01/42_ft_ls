@@ -6,7 +6,7 @@
 /*   By: sechang <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/16 15:40:29 by sechang           #+#    #+#             */
-/*   Updated: 2019/03/03 23:13:32 by sechang          ###   ########.fr       */
+/*   Updated: 2019/03/09 16:38:55 by sechang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,5 +85,10 @@ void				is_usage(t_usage *usage, char c);
 void				usage_check(t_usage *usage, char *argv);
 t_usage				*init_usage(void);
 void				usage_flags(char c);
+
+void				frontbacksplit(t_node *source, t_node **frontref,
+					t_node **backref);
+t_node				*sortedmerge(t_node *a, t_node *b, t_usage *usage);
+t_node				*ls_mergesort(t_node **headref, t_usage *usage);
 
 #endif

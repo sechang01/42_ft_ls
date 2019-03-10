@@ -6,7 +6,7 @@
 /*   By: sechang <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/17 13:32:39 by sechang           #+#    #+#             */
-/*   Updated: 2019/03/03 23:39:45 by sechang          ###   ########.fr       */
+/*   Updated: 2019/03/09 16:39:43 by sechang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void			sort_and_print(t_node *node, t_usage *usage)
 {
-	node = sort_list(node, usage);
+	node = ls_mergesort(&node, usage);
 	if (usage->t)
 		node = sort_list_time(node, usage, 0, 0);
 	if (usage->l && !usage->args)
@@ -100,7 +100,7 @@ void			print_out2(t_node *front, t_usage *usage)
 			ft_printf("\n");
 		if (!(*ft_strrchr(fullname, '/') = '\0') && usage->bigr)
 			ft_printf("./");
-		if (usage->args != 1 || usage->bigr)
+		if (!(usage->total_blocks = 0) && (usage->args != 1 || usage->bigr))
 			ft_printf("%s:\n", fullname);
 		free(fullname);
 		open_dir_files(front, usage, fullpath, NULL);

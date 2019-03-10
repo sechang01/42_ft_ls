@@ -6,7 +6,7 @@
 /*   By: sechang <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/14 20:47:16 by sechang           #+#    #+#             */
-/*   Updated: 2019/03/03 14:10:18 by sechang          ###   ########.fr       */
+/*   Updated: 2019/03/04 14:52:50 by sechang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,6 @@ char				*ft_strjoin(char const *s1, char const *s2);
 char				*ft_strtrim(char const *s);
 char				**ft_strsplit(char const *s, char c);
 char				*ft_itoa(int n);
-char				*ft_itoa_base(int value, int base);
 void				ft_putchar(char c);
 void				ft_putstr(char const *s);
 void				ft_putendl(char const *s);
@@ -92,6 +91,5 @@ int					ft_isupper(int c);
 int					ft_islower(int c);
 int					ft_iswhitespace(int c);
 char				**ft_getwords(char const *s, char c);
-
 
 #endif
